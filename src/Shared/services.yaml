@@ -1,0 +1,24 @@
+parameters:
+    umami.enabled: '%env(bool:UMAMI_ENABLED)%'
+    umami.url: '%env(UMAMI_URL)%'
+    umami.website_id: '%env(UMAMI_WEBSITE_ID)%'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Shared\Infrastructure\Persistence\Doctrine\Validation\UniqueTranslationLocalesValidator: ~
+
+    App\Shared\Observability\Infrastructure\StructuredLogHandlerMetrics:
+        arguments:
+            $logger: '@monolog.logger.metrics'
+
+    App\Shared\UI\:
+        resource: 'UI/'
+        exclude:
+            - 'UI/Admin/LocaleLabels.php'
+            - 'UI/TurboFrame.php'
+
+    App\Shared\Observability\Application\HandlerMetrics:
+        alias: App\Shared\Observability\Infrastructure\StructuredLogHandlerMetrics

@@ -1,0 +1,29 @@
+{% import 'shared/twig/_macros/analytics.html.twig' as analytics %}
+
+<footer class="position-relative overflow-hidden py-5 bg-black"
+        data-turbo-prefetch="false"
+>
+    <div class="bg-overlay"></div>
+
+    <div class="container position-relative z-2">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+            <a href="{{ path('app_home') }}"
+               class="text-accent fs-4"
+               aria-label="{{ 'aria_label.main_page'|trans }}"
+               data-turbo-frame="_top"
+
+                {{ analytics.go_top_and_track_click('footer_button', {name: 'logo'}) }}
+            >
+                <div class="logo">
+                    {{ include('@Assets/images/logo-eye.svg') }}
+                </div>
+            </a>
+
+            <div class="text-center text-muted-custom small text-uppercase tracking-wider">
+               {{ this.data.blockContent('copyright') }}
+            </div>
+
+            <div></div>
+        </div>
+    </div>
+</footer>

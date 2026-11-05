@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body), sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+.accent-font {
+    font-family: var(--font-heading), serif;
+    letter-spacing: 0.0625em;
+}
+
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300;
+}
+
+p {
+    color: var(--text-muted);
+}
+
+.tracking-wider {
+    letter-spacing: 0.15em;
+}
+.tracking-widest {
+    letter-spacing: 0.25em;
+}
+
+.max-w-500 {
+    max-width: 31rem;
+}
+.max-w-800 {
+    max-width: 50rem;
+}
+
+.text-muted-custom {
+    color: var(--text-muted);
+}
+.text-accent {
+    color: var(--accent-color);
+}
+
+.logo {
+    svg {
+        path {
+            fill: var(--accent-color);
+        }
+    }
+}

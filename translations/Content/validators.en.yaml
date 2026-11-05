@@ -1,0 +1,11 @@
+page_translation:
+    slug: Slug may contain only lowercase letters, numbers and hyphens.
+
+page_block:
+    name: Block name may contain only lowercase letters, numbers and underscores.
+
+block_collection:
+    name: Blocks collection name may contain only lowercase letters, numbers and underscores.
+
+block:
+    name: Block name may contain only lowercase letters, numbers and underscores.

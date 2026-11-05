@@ -1,0 +1,11 @@
+parameters:
+    level: 10
+    paths:
+        - bin/
+        - config/
+        - src/
+        - tests/
+    excludePaths:
+        - tests/bootstrap.php
+    doctrine:
+        objectManagerLoader: phpstan-doctrine.php

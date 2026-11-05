@@ -1,0 +1,42 @@
+.locale-switcher {
+    position: fixed;
+    top: 12.5rem;
+    right: 1.25rem;
+    z-index: 1050;
+
+    button {
+        background-color: var(--bg-primary);
+        border: 2px solid var(--accent-color);
+        color: var(--accent-color);
+        width: 2.8rem;
+        height: 2.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-sm);
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
+            transform: scale(1.05);
+        }
+    }
+
+    ul {
+        background-color: var(--bg-primary);
+        border-bottom: 1px solid var(--border-color);
+
+        a {
+            &:hover {
+                background-color: var(--accent-color);
+                color: var(--bg-primary);
+            }
+
+            &:active {
+                background-color: var(--accent-hover);
+                color: var(--bg-primary);
+            }
+        }
+    }
+}

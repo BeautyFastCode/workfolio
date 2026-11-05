@@ -1,0 +1,39 @@
+
+<div class="row g-4 align-items-start mt-4 mb-5">
+
+    {% for task in this.data %}
+        <div class="col-md-3">
+            <div class="image-x-box">
+                {% if task.thumbnail %}
+                    <img
+                        src="{{ asset(image_base_path ~ '/' ~ task.thumbnail) }}"
+                        alt="{{ task.name }}"
+                        loading="lazy"
+                    >
+                {% else %}
+                    <div class="image-x-line1"></div>
+                    <div class="image-x-line2"></div>
+                    <div class="image-x-fallback">
+                        <i class="fa-solid fa-image fa-3x text-accent opacity-50"></i>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <h3 class="mb-3">{{ task.name }}</h3>
+
+            <p class="mb-2">{{ task.description }}</p>
+
+            <p class="mb-2">
+                <strong class="text-accent">{{ 'task.tools'|trans }}:</strong> {{ task.tools }}
+            </p>
+
+            <p class="mb-0">
+                <strong class="text-accent">{{ 'task.impact'|trans }}:</strong>
+                {{ task.impact }}
+            </p>
+        </div>
+    {% endfor %}
+
+</div>

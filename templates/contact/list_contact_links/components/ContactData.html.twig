@@ -1,0 +1,16 @@
+{% import 'shared/twig/_macros/analytics.html.twig' as analytics %}
+
+<div class="contact-data row g-2 mt-3 text-center">
+
+    {% for contact in contacts %}
+        <div class="col-md-4">
+            <a href="{{ contact.href }}" target="_blank"
+                {{ analytics.track_click('contact_data', {name: contact.name}) }}
+            >
+                <i class="{{ contact.icon }} text-accent"></i>
+                <span class="fs-5">{{ contact.name }}</span>
+            </a>
+        </div>
+    {% endfor %}
+
+</div>

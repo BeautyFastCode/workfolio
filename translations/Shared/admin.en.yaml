@@ -1,0 +1,12 @@
+menu:
+    dashboard: Dashboard
+    go_to_front: Go to front
+
+section:
+    cms: CMS
+    crm: CRM
+    admin: Administration
+
+locale:
+    pl: 'PL: Polski'
+    en: 'EN: English'

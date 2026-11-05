@@ -1,0 +1,34 @@
+{% macro track_click(event, payload = null) %}
+    {% if analytics.enabled %}
+        {{ stimulus_controller('analytics', {event: event, payload: payload}) }}
+        {{ stimulus_action('analytics', 'track', 'click') }}
+    {% endif %}
+{% endmacro %}
+
+{% macro go_element_and_track_click(id, event, payload) %}
+    {% if analytics.enabled %}
+        {{ stimulus_controller('go-element', {id: id})
+            |stimulus_controller('analytics', {event: event, payload: payload})
+        }}
+        {{ stimulus_action('go-element', 'scroll', 'click')
+            |stimulus_action('analytics', 'track', 'click')
+        }}
+    {% else %}
+        {{ stimulus_controller('go-element', {id: id}) }}
+        {{ stimulus_action('go-element', 'scroll', 'click') }}
+    {% endif %}
+{% endmacro %}
+
+{% macro go_top_and_track_click(event, payload = null) %}
+    {% if analytics.enabled %}
+        {{ stimulus_controller('go-top')
+        |stimulus_controller('analytics', {event: event, payload: payload})
+        }}
+        {{ stimulus_action('go-top', 'scroll', 'click')
+        |stimulus_action('analytics', 'track', 'click')
+        }}
+    {% else %}
+        {{ stimulus_controller('go-top') }}
+        {{ stimulus_action('go-top', 'scroll', 'click') }}
+    {% endif %}
+{% endmacro %}

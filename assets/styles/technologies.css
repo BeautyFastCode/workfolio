@@ -1,0 +1,29 @@
+.technologies {
+    .technologies-card {
+        background-color: var(--bg-secondary);
+        color: var(--text-muted);
+
+        border: 1px solid transparent;
+        border-radius: 0;
+
+        transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+
+        i,
+        svg {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        &:hover {
+            transform: translateY(-6px);
+            background-color: var(--bg-dark);
+            border-color: var(--accent-hover);
+            box-shadow: var(--shadow-sm);
+
+            i,
+            svg {
+                color: var(--accent-hover);
+            }
+        }
+    }
+}

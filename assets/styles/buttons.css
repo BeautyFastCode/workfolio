@@ -1,0 +1,62 @@
+/* CTA */
+.btn-epic {
+    background-color: transparent;
+    color: var(--text-primary);
+
+    border: 1px solid var(--accent-color);
+    border-radius: 0;
+
+    font-family: var(--font-body), sans-serif;
+    letter-spacing: 0.0625em;
+    font-size: 0.9rem;
+
+    position: relative;
+    overflow: hidden;
+
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: var(--bg-primary);
+        background-color: var(--accent-color);
+        box-shadow: 0 0 15px var(--accent-color);
+    }
+}
+
+/* Go Top */
+.go-top {
+    position: fixed;
+    bottom: 2.8rem;
+    right: 1.25rem;
+    z-index: 1050;
+
+    overflow: hidden;
+
+    button {
+        background-color: var(--bg-primary);
+        border: 2px solid var(--accent-color);
+        color: var(--accent-color);
+        width: 2.8rem;
+        height: 2.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-sm);
+
+        &:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-primary);
+            transform: scale(1.05);
+        }
+
+        opacity: 0;
+        position: relative;
+        right: -100%;
+
+        transition: all 200ms ease-in-out;
+
+        &.active {
+            opacity: 1;
+            right: 0;
+        }
+    }
+}

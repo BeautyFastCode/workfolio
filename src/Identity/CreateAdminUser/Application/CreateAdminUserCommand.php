@@ -1,0 +1,18 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Identity\CreateAdminUser\Application;
+
+final readonly class CreateAdminUserCommand
+{
+    /**
+     * @param list<string> $roles
+     */
+    public function __construct(
+        public string $email,
+        public string $username,
+        public string $plainPassword,
+        public array $roles,
+    ) {}
+}

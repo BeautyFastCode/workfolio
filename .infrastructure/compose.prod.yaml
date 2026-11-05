@@ -1,0 +1,72 @@
+---
+# Production environment override
+#
+# Use together with compose.yaml (make up ENV=prod).
+#
+x-prod-environment: &prod-environment
+  APP_ENV: prod
+  APP_DEBUG: '0'
+  APP_SECRET: ${APP_SECRET:?Set APP_SECRET for production}
+  RUN_MIGRATIONS: '0'
+  DATABASE_URL: sqlite:////app/var/data/database.sqlite
+  MESSENGER_TRANSPORT_DSN: doctrine://default?auto_setup=0
+  SERVER_NAME: ${SERVER_NAME:?Set SERVER_NAME to the public hostname}, php:80
+  DEFAULT_URI: https://${SERVER_NAME}:${HTTPS_PORT:-443}
+  MERCURE_ISSUER: https://${SERVER_NAME}:${HTTPS_PORT:-443}
+  MERCURE_URL: http://php/.well-known/mercure
+  MERCURE_PUBLIC_URL: https://${SERVER_NAME}:${HTTPS_PORT:-443}/.well-known/mercure
+  MERCURE_JWT_SECRET: ${CADDY_MERCURE_JWT_SECRET:?Set CADDY_MERCURE_JWT_SECRET for production}
+  MERCURE_PUBLISHER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET}
+  MERCURE_SUBSCRIBER_JWT_KEY: ${CADDY_MERCURE_JWT_SECRET}
+  MAILER_DSN: ${MAILER_DSN:?Set MAILER_DSN for production}
+  MAILER_FROM_ADDRESS: ${MAILER_FROM_ADDRESS:?Set MAILER_FROM_ADDRESS for production}
+  MAILER_TO_ADRESS: ${MAILER_TO_ADRESS:?Set MAILER_TO_ADRESS for production}
+  UMAMI_ENABLED: ${UMAMI_ENABLED:-false}
+  UMAMI_URL: ${UMAMI_URL:-}
+  UMAMI_WEBSITE_ID: ${UMAMI_WEBSITE_ID:-}
+  IMAGE_BASE_PATH: ${IMAGE_BASE_PATH:-uploads/images}
+  IMAGE_UPLOAD_DIR: ${IMAGE_UPLOAD_DIR:-public/uploads/images}
+  MONOLOG_STREAM: php://stderr
+
+x-prod-runtime: &prod-runtime
+  image: ${IMAGES_PREFIX:-}app-php-prod
+  build:
+    context: ..
+    dockerfile: .infrastructure/Dockerfile
+    target: frankenphp_prod
+  environment: *prod-environment
+  labels:
+    deployment.environment: prod
+  volumes:
+    - app_data:/app/var/data
+    - app_uploads:/app/public/uploads
+
+services:
+  php:
+    <<: *prod-runtime
+    environment:
+      <<: *prod-environment
+      RUN_MIGRATIONS: '1'
+    volumes:
+      - app_data:/app/var/data
+      - app_uploads:/app/public/uploads
+      - prod_caddy_data:/data
+      - prod_caddy_config:/config
+
+  php-worker:
+    <<: *prod-runtime
+    depends_on:
+      php:
+        condition: service_healthy
+
+  php-scheduler:
+    <<: *prod-runtime
+    depends_on:
+      php:
+        condition: service_healthy
+
+volumes:
+  app_data:
+  app_uploads:
+  prod_caddy_data:
+  prod_caddy_config:

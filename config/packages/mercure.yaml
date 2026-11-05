@@ -1,0 +1,13 @@
+mercure:
+    hubs:
+        default:
+            protocol_version: '1.0'
+            url: '%env(default::MERCURE_URL)%'
+            public_url: '%env(default::MERCURE_PUBLIC_URL)%'
+            jwt:
+                secret: '%env(MERCURE_JWT_SECRET)%'
+                publish: ['cta_message_topic_en', 'cta_message_topic_pl']
+                claims:
+                    iss: '%env(MERCURE_ISSUER)%'
+                    sub: workfolio-scheduler
+                    client_id: workfolio

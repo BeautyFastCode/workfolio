@@ -1,0 +1,29 @@
+{% import 'shared/twig/_macros/analytics.html.twig' as analytics %}
+
+<div class="locale-switcher"
+     data-turbo-prefetch="false"
+>
+    <button
+        class="rounded-circle"
+        type="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        aria-label="{{ 'aria_label.locale_switcher'|trans }}"
+
+        {{ analytics.track_click('locale_switcher_dropdown') }}
+    >
+        {{ app.request.locale|upper }}
+    </button>
+
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item"
+               href="{{ path('app_home', {_locale: 'en'}) }}"
+                {{ analytics.track_click('locale_switcher_dropdown', {locale: 'en'}) }}
+
+            >English</a></li>
+        <li><a class="dropdown-item"
+               href="{{ path('app_home', {_locale: 'pl'}) }}"
+                {{ analytics.track_click('locale_switcher_dropdown', {locale: 'pl'}) }}
+            >Polski</a></li>
+    </ul>
+</div>

@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../vendor/symfony/dependency-injection/Loader/schema/services.schema.json
+
+imports:
+    - { resource: '../src/Shared/services.yaml' }
+    - { resource: '../src/CallToAction/services.yaml' }
+    - { resource: '../src/Contact/services.yaml' }
+    - { resource: '../src/Content/services.yaml' }
+    - { resource: '../src/Portfolio/services.yaml' }
+    - { resource: '../src/Identity/services.yaml' }
+
+parameters:
+    app.supported_locales: 'en|pl'
+    app.image.base_path: '%env(IMAGE_BASE_PATH)%'
+    app.image.upload_dir: '%env(IMAGE_UPLOAD_DIR)%'

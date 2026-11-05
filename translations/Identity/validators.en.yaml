@@ -1,0 +1,9 @@
+admin_user:
+    username:
+        invalid_chars: Username can only contain letters, numbers, periods, dashes, and underscores.
+
+    roles:
+        min_count: An administrator must have at least one role.
+
+    plain_password:
+        weak: The password must contain a lowercase letter, an uppercase letter, and a number.

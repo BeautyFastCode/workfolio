@@ -1,0 +1,26 @@
+menu:
+    contact_link: Linki kontaktowe
+    contact_message: Wiadomości kontaktowe
+
+crud:
+    contact_link:
+        entity_label:
+            plural: Linki kontaktowe
+            singular: Link kontaktowy
+        name: Nazwa
+        enabled: Włączony?
+        position: Pozycja
+        icon: Ikonka
+        href: Link
+        created_at: Utworzono o
+        updated_at: Zaktualizowano o
+
+    contact_message:
+        entity_label:
+            plural: Wiadomości kontaktowe
+            singular: Wiadomość kontaktowa
+        full_name: Imię i nazwisko
+        email: E-mail
+        subject: Temat
+        message: Wiadomość
+        created_at: Data utworzenia

@@ -1,0 +1,11 @@
+{% import 'shared/twig/_macros/analytics.html.twig' as analytics %}
+
+<div class="go-top">
+    <button href="#top" class="rounded-circle"
+        aria-label="{{ 'aria_label.go_top'|trans }}"
+        {{ analytics.go_top_and_track_click('go_top_button') }}
+    >
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+</div>

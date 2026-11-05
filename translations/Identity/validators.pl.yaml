@@ -1,0 +1,9 @@
+admin_user:
+    username:
+        invalid_chars: Nazwa użytkownika może zawierać tylko litery, cyfry, kropkę, myślnik i podkreślenie.
+
+    roles:
+        min_count: Administrator musi mieć co najmniej jedną rolę.
+
+    plain_password:
+        weak: Hasło musi zawierać małą literę, wielką literę i cyfrę.

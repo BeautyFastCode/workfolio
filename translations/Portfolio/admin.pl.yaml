@@ -1,0 +1,97 @@
+menu:
+    statistic: Statystyki
+    technology: Technologie
+    task: Zadania
+
+crud:
+    statistic_group:
+        entity_label:
+            plural: Grupy statystyk
+            singular: Grupa statystyk
+        created_at: Utworzono o
+        updated_at: Zaktualizowano o
+        position: Pozycja
+        name_pl: 'PL: Polski'
+        name_en: 'EN: English'
+        translations: Tłumaczenia
+        items: Elementy
+
+    statistic_group_translation:
+        entity_label:
+            plural: Tłumaczenia statystyk
+            singular: Tłumaczenie statystyki
+        locale: Język
+        name: Nazwa
+
+    statistic_item:
+        entity_label:
+            plural: Statystyki
+            singular: Statystyka
+        created_at: Utworzono o
+        updated_at: Zaktualizowano o
+        position: Pozycja
+        icon: Ikonka
+        value: Wartość
+        name_pl: 'PL: Polski'
+        name_en: 'EN: English'
+        translations: Tłumaczenia
+
+    statistic_item_translation:
+        entity_label:
+            plural: Tłumaczenia statystyk
+            singular: Tłumaczenie statystyki
+        locale: Język
+        name: Nazwa
+
+    technology_group:
+        entity_label:
+            plural: Grupy technologii
+            singular: Grupa technologii
+        created_at: Utworzono o
+        updated_at: Zaktualizowano o
+        position: Pozycja
+        highlighted: Wyróżniona?
+        name_pl: 'PL: Polski'
+        name_en: 'EN: English'
+        translations: Tłumaczenia
+        items: Elementy
+
+    technology_group_translation:
+        entity_label:
+            plural: Tłumaczenia dla technologii
+            singular: Tłumaczenia dla technologii
+        locale: Język
+        name: Nazwa
+
+    technology_item:
+        entity_label:
+            plural: Technologie
+            singular: Technologia
+        created_at: Utworzono o
+        updated_at: Zaktualizowano o
+        name: Nazwa
+        position: Pozycja
+        icon: Ikonka
+        translations: Tłumaczenia
+
+    task:
+        entity_label:
+            plural: Zadania
+            singular: Zadanie
+        created_at: Utworzono o
+        updated_at: Zaktualizowano o
+        position: Pozycja
+        thumbnail: Miniaturka
+        name_pl: 'PL: Polski'
+        name_en: 'EN: English'
+        translations: Tłumaczenia
+
+    task_translation:
+        entity_label:
+            plural: Tłumaczenia dla zadań
+            singular: Tłumaczenia dla zadania
+        locale: Język
+        name: Nazwa
+        description: Opis
+        tools: Narzędzia
+        impact: Mierzalny wpływ

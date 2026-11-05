@@ -1,0 +1,21 @@
+
+site_name: Workfolio
+
+aria_label:
+    theme_switcher: Przełącz motyw jasny/ciemny
+    locale_switcher: Przełącz język strony
+    main_page: Strona główna
+    go_top: Przewiń do góry
+    main_navbar: Nawigacja główna
+
+errors:
+    403: Nie masz dostępu do tej strony
+    404: Nie można znaleźć żądanej strony. Sprawdź, czy nie ma błędów w pisowni adresu URL lub
+    any: Coś jest zepsute. Daj nam znać, co robiłeś, gdy wystąpił ten błąd. Naprawimy to tak szybko, jak to możliwe. Przepraszamy za wszelkie niedogodności.
+    return_to_home: Wróć do strony głównej
+
+button:
+    show_more: Pokaż więcej
+    show_less: Pokaż mniej
+    about_me: O mnie
+    contact: Kontakt

@@ -1,0 +1,26 @@
+{% import 'shared/twig/_macros/analytics.html.twig' as analytics %}
+
+<section
+    class="contact-cta py-5 text-center"
+    data-turbo-prefetch="false"
+>
+    <div class="container py-4">
+
+        {{ turbo_stream_from(this.topic) }}
+        <div>
+            <div id="{{ this.target }}">
+                <p class="fst-italic fs-2 text-accent mb-0">{{ 'cta_message.default'|trans }}</p>
+            </div>
+        </div>
+
+        <a href="{{ path('app_home', {slug: 'contact'}) }}"
+            class="btn btn-epic text-uppercase px-4 mt-3"
+            data-turbo-frame="{{ turboFrame.pageId }}"
+            data-turbo-action="advance"
+
+            {{ analytics.go_element_and_track_click('main', 'contact_cta_button', {name: 'contact'}) }}
+        >
+            <span>{{ 'button.contact'|trans }}</span>
+        </a>
+    </div>
+</section>

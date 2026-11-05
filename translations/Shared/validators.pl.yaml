@@ -1,0 +1,5 @@
+
+translatable:
+    translations:
+        min_count: Dodaj przynajmniej jedno tłumaczenie.
+        unique: Tłumaczenie dla języka "{{ locale }}" już istnieje.

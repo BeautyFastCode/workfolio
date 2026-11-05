@@ -1,0 +1,100 @@
+monolog:
+    channels:
+        - deprecation # Deprecations are logged in the dedicated "deprecation" channel when it exists
+        - scheduler
+        - mailer
+        - metrics
+
+when@dev:
+    monolog:
+        handlers:
+            main:
+                type: stream
+                path: '%env(MONOLOG_STREAM)%'
+                level: debug
+                formatter: monolog.formatter.json
+                channels: ["!event", "!metrics"]
+            console:
+                type: console
+                process_psr_3_messages: false
+                channels: ["!event", "!doctrine", "!console"]
+            scheduler:
+                type: stream
+                path: '%env(MONOLOG_STREAM)%'
+                level: debug
+                formatter: monolog.formatter.json
+                channels: ["scheduler"]
+            mailer:
+                type: stream
+                path: '%env(MONOLOG_STREAM)%'
+                level: debug
+                formatter: monolog.formatter.json
+                channels: ["mailer"]
+            handler_metrics:
+                type: stream
+                path: '%env(MONOLOG_STREAM)%'
+                level: info
+                formatter: monolog.formatter.json
+                channels: ["metrics"]
+
+when@test:
+    monolog:
+        handlers:
+            main:
+                type: fingers_crossed
+                action_level: error
+                handler: nested
+                excluded_http_codes: [404, 405]
+                channels: ["!event", "!metrics"]
+            nested:
+                type: stream
+                path: "%kernel.logs_dir%/%kernel.environment%.log"
+                level: debug
+            handler_metrics:
+                type: stream
+                path: "%kernel.logs_dir%/%kernel.environment%.log"
+                level: info
+                channels: ["metrics"]
+
+when@prod:
+    monolog:
+        handlers:
+            main:
+                type: fingers_crossed
+                action_level: error
+                handler: nested
+                excluded_http_codes: [404, 405]
+                channels: ["!deprecation", "!metrics", "!scheduler", "!mailer"]
+                buffer_size: 50 # How many messages should be saved? Prevent memory leaks
+            nested:
+                type: stream
+                path: '%env(MONOLOG_STREAM)%'
+                level: debug
+                formatter: monolog.formatter.json
+            console:
+                type: console
+                process_psr_3_messages: false
+                channels: ["!event", "!doctrine", "!scheduler", "!mailer"]
+            deprecation:
+                type: stream
+                channels: [deprecation]
+                path: '%env(MONOLOG_STREAM)%'
+                formatter: monolog.formatter.json
+            scheduler:
+                type: stream
+                path: '%env(MONOLOG_STREAM)%'
+                level: info
+                formatter: monolog.formatter.json
+                channels: [scheduler]
+            mailer:
+                type: stream
+                path: '%env(MONOLOG_STREAM)%'
+                level: info
+                formatter: monolog.formatter.json
+                channels: [mailer]
+            handler_metrics:
+                type: stream
+                path: '%env(MONOLOG_STREAM)%'
+                level: info
+                formatter: monolog.formatter.json
+                channels: ["metrics"]

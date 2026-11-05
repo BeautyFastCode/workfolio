@@ -1,0 +1,56 @@
+parameters:
+    mailer.from_address: '%env(MAILER_FROM_ADDRESS)%'
+    mailer.to_address: '%env(MAILER_TO_ADRESS)%'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Contact\ListContactLinks\Application\ListContactLinksHandler: ~
+    App\Contact\SubmitContactMessage\Application\ContactMessageValidator: ~
+    App\Contact\SubmitContactMessage\Application\SubmitContactMessageHandler:
+        arguments:
+            $metrics: '@App\Shared\Observability\Application\HandlerMetrics'
+
+    App\Contact\ListContactLinks\Infrastructure\:
+        resource: 'ListContactLinks/Infrastructure/'
+
+    App\Contact\ListContactLinks\UI\:
+        resource: 'ListContactLinks/UI/'
+
+    App\Contact\SubmitContactMessage\Infrastructure\:
+        resource: 'SubmitContactMessage/Infrastructure/'
+
+    App\Contact\SubmitContactMessage\UI\:
+        resource: 'SubmitContactMessage/UI/'
+        exclude:
+            - 'SubmitContactMessage/UI/ContactMessageData.php'
+
+    App\Contact\ManageContactLinks\UI\:
+        resource: 'ManageContactLinks/UI/'
+
+    App\Contact\ManageContactMessages\UI\:
+        resource: 'ManageContactMessages/UI/'
+
+    App\Contact\Shared\Infrastructure\:
+        resource: 'Shared/Infrastructure/'
+        exclude:
+            - 'Shared/Infrastructure/Persistence/'
+
+    App\Contact\SubmitContactMessage\Application\ContactMessageRepository:
+        alias: App\Contact\SubmitContactMessage\Infrastructure\DoctrineContactMessageRepository
+
+    App\Contact\SubmitContactMessage\Application\ContactMessageTransaction:
+        alias: App\Contact\SubmitContactMessage\Infrastructure\DoctrineContactMessageTransaction
+
+    App\Contact\SubmitContactMessage\Application\ContactMessageNotifier:
+        alias: App\Contact\SubmitContactMessage\Infrastructure\MailerContactMessageNotifier
+
+    App\Contact\ListContactLinks\Application\ContactLinkFinder:
+        alias: App\Contact\ListContactLinks\Infrastructure\DoctrineContactLinkFinder
+
+    App\Contact\SubmitContactMessage\Infrastructure\MailerContactMessageNotifier:
+        arguments:
+            $fromAddress: '%mailer.from_address%'
+            $toAddress: '%mailer.to_address%'

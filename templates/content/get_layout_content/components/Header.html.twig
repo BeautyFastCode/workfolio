@@ -1,0 +1,78 @@
+
+{% import 'shared/twig/_macros/analytics.html.twig' as analytics %}
+
+{% set locale = locale_provider.current %}
+
+<header class="position-relative overflow-hidden d-flex align-items-center py-5"
+        data-turbo-prefetch="false"
+>
+    <div class="bg-overlay"></div>
+
+    <div class="container position-relative z-2 py-4">
+        <div class="row align-items-center gy-4">
+            <div class="col-12 col-md-7 order-2 order-md-1 text-center text-md-start">
+                <span class="text-uppercase tracking-wider text-accent mb-2 d-block">{{ this.data.blockContent('site_name') }}</span>
+                <h1 class="display-4 text-uppercase">{{ this.data.blockContent('title') }}</h1>
+                <h2 class="h4 text-muted-custom text-uppercase mb-4">{{ this.data.blockContent('subtitle') }}</h2>
+
+                <p class="mb-4 max-w-500 fs-5">{{ this.data.blockContent('about') }}</p>
+
+                <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
+
+                    {% set about = 'about' %}
+                    {% if locale.value == 'pl' %}
+                        {% set about = 'o-mnie' %}
+                    {% endif %}
+
+                    <a href="{{ path('app_home', {slug: about}) }}"
+                        class="btn btn-epic text-uppercase px-4"
+                        data-turbo-frame="{{ turboFrame.pageId }}"
+                        data-turbo-action="advance"
+
+                        {{ analytics.go_element_and_track_click('main', 'header_button', {name: 'about'}) }}
+                    >
+                        <span>{{ 'button.about_me'|trans }}</span>
+                    </a>
+
+                    {% set contact = 'contact' %}
+                    {% if locale.value == 'pl' %}
+                        {% set contact = 'kontakt' %}
+                    {% endif %}
+
+                    <a href="{{ path('app_home', {slug: contact}) }}"
+                        class="btn btn-epic text-uppercase px-4"
+                        data-turbo-frame="{{ turboFrame.pageId }}"
+                        data-turbo-action="advance"
+
+                        {{ analytics.go_element_and_track_click('main', 'header_button', {name: 'contact'}) }}
+                    >
+                        <span>{{ 'button.contact'|trans }}</span>
+                    </a>
+                </div>
+            </div>
+
+            {% set image = this.data.blockImage('image') %}
+            {% set image_alt = this.data.blockContent('image') %}
+
+            <div class="col-12 col-md-5 order-1 order-md-2 text-center">
+                <div class="mx-auto">
+                    <div class="image-x-box">
+                        {% if image %}
+                            <img
+                                src="{{ asset(image_base_path ~ '/' ~ image) }}"
+                                alt="{{ image_alt }}"
+                                loading="lazy"
+                            >
+                        {% else %}
+                            <div class="image-x-line1"></div>
+                            <div class="image-x-line2"></div>
+                            <div class="image-x-fallback">
+                                <i class="fa-solid fa-image fa-3x text-accent opacity-50"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,79 @@
+menu:
+    page: Pages
+    block_collection: Blocks collections
+
+crud:
+    page:
+        entity_label:
+            plural: Pages
+            singular: Page
+        created_at: Created At
+        updated_at: Updated At
+        position: Positon
+        published: Published?
+        content_template: Template
+        title_pl: 'PL: Polski'
+        title_en: 'EN: English'
+        translations: Translations
+        blocks: Content blocks
+
+    page_translation:
+        entity_label:
+            plural: Translations for pages
+            singular: Translation for page
+        locale: Locale
+        title: Title
+        slug: Slug
+        menuTitle: Menu title
+
+    page_block:
+        entity_label:
+            plural: Blocks
+            singular: Block
+        created_at: Created At
+        updated_at: Updated At
+        position: Positon
+        name: Name
+        type: Type
+        translations: Translations
+
+    page_block_translation:
+        entity_label:
+            plural: Translations for blocks
+            singular: Translation for block
+        locale: Locale
+        content: Content
+
+    block_type:
+        text: Text
+        html: Html
+        twig: Twig component
+        image: Image
+
+    block_collection:
+        entity_label:
+            plural: Blocks collections
+            singular: Block collection
+        created_at: Created At
+        updated_at: Updated At
+        name: Name
+        blocks: Blocks
+
+    block:
+        entity_label:
+            plural: Blocks
+            singular: Block
+        created_at: Created At
+        updated_at: Updated At
+        position: Positon
+        name: Name
+        type: Type
+        translations: Translations
+
+    block_translation:
+        entity_label:
+            plural: Translations for blocks
+            singular: Translation for block
+        locale: Locale
+        content: Content
+        image: Image

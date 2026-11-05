@@ -1,0 +1,21 @@
+
+site_name: Workfolio
+
+aria_label:
+    theme_switcher: Switch light/dark theme
+    locale_switcher: Switch site language
+    main_page: Home page
+    go_top: Scroll to top
+    main_navbar: Main navigation
+
+errors:
+    403: You do not have access to this page
+    404: The requested page could not be located. Checkout for any URL misspelling or
+    any: Something is broken. Please let us know what you were doing when this error occurred. We will fix it as soon as possible. Sorry for any inconvenience caused.
+    return_to_home: Return to the homepage
+
+button:
+    show_more: Show more
+    show_less: Show less
+    about_me: About me
+    contact: Contact

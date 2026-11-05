@@ -1,0 +1,18 @@
+twig:
+    file_name_pattern: '*.twig'
+    paths:
+        '%kernel.project_dir%/assets': Assets
+
+    globals:
+        turboFrame:
+            pageId: !php/const App\Shared\UI\TurboFrame::PAGE_ID
+            contactFormId: !php/const App\Shared\UI\TurboFrame::CONTACT_FORM_ID
+        locale_provider: '@App\Shared\UI\Twig\LocaleProvider'
+        image_base_path: '%app.image.base_path%'
+
+    form_themes:
+        - 'bootstrap_5_layout.html.twig'
+
+when@test:
+    twig:
+        strict_variables: true

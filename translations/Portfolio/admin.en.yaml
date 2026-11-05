@@ -1,0 +1,97 @@
+menu:
+    statistic: Statistics
+    technology: Technologies
+    task: Tasks
+
+crud:
+    statistic_group:
+        entity_label:
+            plural: Statistics groups
+            singular: Statistic group
+        created_at: Created At
+        updated_at: Updated At
+        position: Positon
+        name_pl: 'PL: Polski'
+        name_en: 'EN: English'
+        translations: Translations
+        items: Items
+
+    statistic_group_translation:
+        entity_label:
+            plural: Translations for statistics
+            singular: Translation for statistic
+        locale: Locale
+        name: Name
+
+    statistic_item:
+        entity_label:
+            plural: Statistics
+            singular: Statistic
+        created_at: Created At
+        updated_at: Updated At
+        position: Positon
+        icon: Icon
+        value: Value
+        name_pl: 'PL: Polski'
+        name_en: 'EN: English'
+        translations: Translations
+
+    statistic_item_translation:
+        entity_label:
+            plural: Translations for statistics
+            singular: Translation for statistic
+        locale: Locale
+        name: Name
+
+    technology_group:
+        entity_label:
+            plural: Technologies groups
+            singular: Technology group
+        created_at: Created At
+        updated_at: Updated At
+        position: Positon
+        highlighted: Highlighted
+        name_pl: 'PL: Polski'
+        name_en: 'EN: English'
+        translations: Translations
+        items: Items
+
+    technology_group_translation:
+        entity_label:
+            plural: Translations for technologies
+            singular: Translation for technology
+        locale: Locale
+        name: Name
+
+    technology_item:
+        entity_label:
+            plural: Technologies
+            singular: Technology
+        created_at: Created At
+        updated_at: Updated At
+        name: Name
+        position: Positon
+        icon: Icon
+        translations: Translations
+
+    task:
+        entity_label:
+            plural: Tasks
+            singular: Task
+        created_at: Created At
+        updated_at: Updated At
+        position: Positon
+        thumbnail: Thumbnail
+        name_pl: 'PL: Polski'
+        name_en: 'EN: English'
+        translations: Translations
+
+    task_translation:
+        entity_label:
+            plural: Translations for tasks
+            singular: Translation for task
+        locale: Locale
+        name: Name
+        description: Description
+        tools: Tools
+        impact: Measurable Impact

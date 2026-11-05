@@ -1,0 +1,79 @@
+menu:
+    page: Strony
+    block_collection: Kolekcje bloków
+
+crud:
+    page:
+        entity_label:
+            plural: Strony
+            singular: Strona
+        created_at: Utworzono o
+        updated_at: Zaktualizowano o
+        position: Pozycja
+        published: Opublikowana?
+        content_template: Szablon
+        title_pl: 'PL: Polski'
+        title_en: 'EN: English'
+        translations: Tłumaczenia
+        blocks: Bloki treści
+
+    page_translation:
+        entity_label:
+            plural: Tłumaczenia dla stron
+            singular: Tłumaczenia dla strony
+        locale: Język
+        title: Tytuł
+        slug: Slug
+        menuTitle: Tytuł w menu
+
+    page_block:
+        entity_label:
+            plural: Bloki
+            singular: Blok
+        created_at: Utworzono o
+        updated_at: Zaktualizowano o
+        position: Pozycja
+        name: Nazwa
+        type: Rodzaj
+        translations: Tłumaczenia
+
+    page_block_translation:
+        entity_label:
+            plural: Tłumaczenia dla bloków
+            singular: Tłumaczenia dla bloku
+        locale: Język
+        content: Treść
+
+    block_type:
+        text: Tekstowy
+        html: Html
+        twig: Komponent Twig
+        image: Obrazek
+
+    block_collection:
+        entity_label:
+            plural: Kolekcje bloków
+            singular: Kolekcja bloków
+        created_at: Utworzono o
+        updated_at: Zaktualizowano o
+        name: Nazwa
+        blocks: Bloki
+
+    block:
+        entity_label:
+            plural: Bloki
+            singular: Blok
+        created_at: Utworzono o
+        updated_at: Zaktualizowano o
+        position: Pozycja
+        name: Nazwa
+        type: Rodzaj
+        translations: Tłumaczenia
+
+    block_translation:
+        entity_label:
+            plural: Tłumaczenia dla bloków
+            singular: Tłumaczenia dla bloku
+        locale: Język
+        content: Treść
+        image: Obrazek

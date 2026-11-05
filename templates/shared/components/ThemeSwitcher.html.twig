@@ -1,0 +1,12 @@
+
+<div class="theme-switcher"
+    {{ stimulus_controller('theme-switcher') }}
+>
+    <button class="rounded-circle"
+            aria-label="{{ 'aria_label.theme_switcher'|trans }}"
+            {{ stimulus_action('theme-switcher', 'toggle', 'click') }}
+    >
+        <i class="fa-solid fa-sun d-none-dark"></i>
+        <i class="fa-solid fa-moon d-none-light"></i>
+    </button>
+</div>

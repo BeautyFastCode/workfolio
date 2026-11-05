@@ -1,0 +1,11 @@
+contact_message:
+    full_name: Full name
+    full_name_placeholder: Enter your full name
+    email: Email address
+    email_placeholder: Enter your email address
+    subject: Subject
+    subject_placeholder: Enter the message subject
+    message: Message
+    message_placeholder: Enter your message
+    submit: Send message
+    submit_success: Thank you for your message. I will contact you as soon as possible.

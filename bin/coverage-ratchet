@@ -1,0 +1,73 @@
+<?php
+
+declare(strict_types=1);
+
+use App\Tests\Architecture\CoverageRatchet;
+
+require dirname(__DIR__).'/vendor/autoload.php';
+
+try {
+    $baselineFile = dirname(__DIR__).'/coverage-ratchet.json';
+    $baselineContents = file_get_contents($baselineFile);
+
+    if ($baselineContents === false) {
+        throw new RuntimeException(sprintf('Unable to read coverage baseline "%s".', $baselineFile));
+    }
+
+    /** @var mixed $baseline */
+    $baseline = json_decode($baselineContents, true, flags: JSON_THROW_ON_ERROR);
+
+    if (!is_array($baseline) || !is_int($baseline['minimum_line_coverage_basis_points'] ?? null)) {
+        throw new RuntimeException(sprintf('Coverage baseline "%s" is invalid.', $baselineFile));
+    }
+
+    $minimumBasisPoints = $baseline['minimum_line_coverage_basis_points'];
+    $cloverFile = $argv[1] ?? dirname(__DIR__).'/var/coverage/clover.xml';
+    $modules = ['Content', 'Portfolio', 'Contact', 'CallToAction', 'Identity', 'Shared'];
+    $lineCoverage = CoverageRatchet::lineCoverageFromClover($cloverFile);
+    $moduleLineCoverage = CoverageRatchet::moduleLineCoverageFromClover($cloverFile, $modules);
+    $percentage = CoverageRatchet::percentage($lineCoverage['covered'], $lineCoverage['total']);
+    $minimumPercentage = $minimumBasisPoints / 100;
+
+    if (!CoverageRatchet::passes($lineCoverage['covered'], $lineCoverage['total'], $minimumBasisPoints)) {
+        fwrite(STDERR, sprintf(
+            "Line coverage %.2f%% (%d/%d) is below the approved baseline %.2f%%.\n",
+            $percentage,
+            $lineCoverage['covered'],
+            $lineCoverage['total'],
+            $minimumPercentage,
+        ));
+
+        exit(1);
+    }
+
+    printf(
+        "Line coverage %.2f%% (%d/%d) meets the approved baseline %.2f%%.\n",
+        $percentage,
+        $lineCoverage['covered'],
+        $lineCoverage['total'],
+        $minimumPercentage,
+    );
+
+    echo "Module line coverage:\n";
+
+    foreach ($moduleLineCoverage as $module => $coverage) {
+        if (0 === $coverage['total']) {
+            printf("  %s: no code\n", $module);
+
+            continue;
+        }
+
+        printf(
+            "  %s: %.2f%% (%d/%d)\n",
+            $module,
+            CoverageRatchet::percentage($coverage['covered'], $coverage['total']),
+            $coverage['covered'],
+            $coverage['total'],
+        );
+    }
+} catch (Throwable $exception) {
+    fwrite(STDERR, sprintf("Coverage ratchet failed: %s\n", $exception->getMessage()));
+
+    exit(2);
+}

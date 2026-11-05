@@ -1,0 +1,11 @@
+contact_message:
+    full_name: Imię i nazwisko
+    full_name_placeholder: Wpisz imię i nazwisko
+    email: Adres e-mail
+    email_placeholder: Wpisz adres e-mail
+    subject: Temat
+    subject_placeholder: Wpisz temat wiadomości
+    message: Wiadomość
+    message_placeholder: Wpisz treść wiadomości
+    submit: Wyślij wiadomość
+    submit_success: Dziękujemy za wiadomość. Skontaktuję się z Tobą tak szybko, jak to możliwe.

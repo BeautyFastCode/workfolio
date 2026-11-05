@@ -1,0 +1,10 @@
+
+{% for block in page.blocks %}
+    {% if block.type == 'html' %}
+        {{ block.content|raw }}
+    {% elseif block.type == 'twig' %}
+        {{ render_component(block.content)|raw }}
+    {% else %}
+        {{ block.content }}
+    {% endif %}
+{% endfor %}

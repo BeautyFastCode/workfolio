@@ -1,0 +1,7 @@
+.contact-cta {
+    border-top: 1px solid var(--border-color);
+
+    background: var(--bg-dark);
+
+    font-family: var(--font-heading), serif;
+}

@@ -1,0 +1,39 @@
+{% set locale = locale_provider.current %}
+
+<!DOCTYPE html>
+<html lang="{{ locale.value }}">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{{ 'site_name'|trans }}{% endblock %}</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% block favicon %}
+            <link rel="icon" href="{{ asset('icons/favicon.svg') }}" type="image/svg+xml">
+            <link rel="icon" href="/favicon.ico" sizes="any">
+            <link rel="apple-touch-icon" href="{{ asset('icons/apple-touch-icon.png') }}">
+        {% endblock %}
+
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+
+        <twig:Analytics />
+    </head>
+    <body>
+        {% block body %}
+            <twig:Header />
+            <twig:ThemeSwitcher />
+            <twig:LocaleSwitcher />
+            <twig:Navbar :locale="locale" />
+
+            <main id="main">
+                {% block article %}{% endblock %}
+
+                <twig:Statistics :locale="locale" />
+                <twig:CtaMessage :locale="locale" />
+            </main>
+
+            <twig:Footer />
+            <twig:GoTop />
+        {% endblock %}
+    </body>
+</html>

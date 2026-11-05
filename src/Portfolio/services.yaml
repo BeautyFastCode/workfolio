@@ -1,0 +1,49 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Portfolio\ListStatistics\Application\ListStatisticsHandler: ~
+    App\Portfolio\ListTasks\Application\ListTasksHandler: ~
+    App\Portfolio\ListTechnologies\Application\ListTechnologiesHandler: ~
+
+    App\Portfolio\ListStatistics\Infrastructure\:
+        resource: 'ListStatistics/Infrastructure/'
+
+    App\Portfolio\ListStatistics\UI\:
+        resource: 'ListStatistics/UI/'
+
+    App\Portfolio\ListTasks\Infrastructure\:
+        resource: 'ListTasks/Infrastructure/'
+
+    App\Portfolio\ListTasks\UI\:
+        resource: 'ListTasks/UI/'
+
+    App\Portfolio\ListTechnologies\Infrastructure\:
+        resource: 'ListTechnologies/Infrastructure/'
+
+    App\Portfolio\ListTechnologies\UI\:
+        resource: 'ListTechnologies/UI/'
+
+    App\Portfolio\ManageStatistics\UI\:
+        resource: 'ManageStatistics/UI/'
+
+    App\Portfolio\ManageTasks\UI\:
+        resource: 'ManageTasks/UI/'
+
+    App\Portfolio\ManageTechnologies\UI\:
+        resource: 'ManageTechnologies/UI/'
+
+    App\Portfolio\Shared\Infrastructure\:
+        resource: 'Shared/Infrastructure/'
+        exclude:
+            - 'Shared/Infrastructure/Persistence/'
+
+    App\Portfolio\ListTasks\Application\TaskFinder:
+        alias: App\Portfolio\ListTasks\Infrastructure\DoctrineTaskFinder
+
+    App\Portfolio\ListTechnologies\Application\TechnologyFinder:
+        alias: App\Portfolio\ListTechnologies\Infrastructure\DoctrineTechnologyFinder
+
+    App\Portfolio\ListStatistics\Application\StatisticFinder:
+        alias: App\Portfolio\ListStatistics\Infrastructure\DoctrineStatisticFinder

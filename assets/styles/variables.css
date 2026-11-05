@@ -1,0 +1,55 @@
+:root {
+    --font-heading: 'Cormorant Garamond';
+    --font-body: 'Inter';
+    --bs-link-hover-color: var(--accent-hover);
+}
+
+[data-bs-theme='dark'] {
+    --bg-primary: #0a0a0b;
+    --bg-secondary: color-mix(in srgb, var(--bg-primary), white 5%);
+    --bg-dark: color-mix(in srgb, var(--bg-primary), white 3%);
+
+    --text-primary: #f5f5f7;
+    --text-muted: #9e9ea7;
+
+    --text-h1-shadow: rgba(255, 255, 255, 0.4);
+
+    --accent-color: #d4af37;
+    --accent-hover: #f3e5ab;
+
+    --border-color: rgba(212, 175, 55, 0.15);
+    --border-accent: rgba(212, 175, 55, 0.4);
+
+    --shadow-sm: 0 4px 10px rgba(212, 175, 55, 0.05);
+
+    --overlay-radial-color: rgba(214, 175, 55, 0.1);
+    --overlay-linear-color: #0a0a0b;
+
+    --overlay-footer-radial-color: rgba(214, 175, 55, 0.1);
+    --overlay-footer-linear-color: #0a0a0b;
+}
+
+[data-bs-theme='light'] {
+    --bg-primary: #fafafa;
+    --bg-secondary: color-mix(in srgb, var(--bg-primary), black 3%);
+    --bg-dark: color-mix(in srgb, var(--bg-primary), black 5%);
+
+    --text-primary: #1a1a1c;
+    --text-muted: #63636e;
+
+    --text-h1-shadow: rgba(0, 0, 0, 0.4);
+
+    --accent-color: #aa1d1d;
+    --accent-hover: #d32f2f;
+
+    --border-color: rgba(170, 29, 29, 0.2);
+    --border-accent: rgba(170, 29, 29, 0.7);
+
+    --shadow-sm: 0 4px 15px rgba(170, 29, 29, 0.1);
+
+    --overlay-radial-color: rgba(170, 29, 29, 0.15);
+    --overlay-linear-color: #fafafa;
+
+    --overlay-footer-radial-color: rgba(170, 29, 29, 0.3);
+    --overlay-footer-linear-color: #0a0a0b;
+}

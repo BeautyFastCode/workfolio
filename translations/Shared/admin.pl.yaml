@@ -1,0 +1,12 @@
+menu:
+    dashboard: Panel administracyjny
+    go_to_front: Przejdź na stronę
+
+section:
+    cms: CMS
+    crm: CRM
+    admin: Administracja
+
+locale:
+    pl: 'PL: Polski'
+    en: 'EN: English'

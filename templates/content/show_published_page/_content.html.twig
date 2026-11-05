@@ -1,0 +1,15 @@
+<turbo-frame id="{{ turboFrame.pageId }}">
+    <span class="d-none" data-page-title="{{ page.menuTitle }} | {{ 'site_name'|trans }}"></span>
+
+    <article class="py-5">
+        <div class="container py-4 text-center max-w-800">
+            <h2 class="display-6 text-uppercase mb-4">
+                {{ page.title }}
+            </h2>
+            <div class="text-start mt-3">
+                {{ include('content/show_published_page/page_content_template/' ~ page.contentTemplate) }}
+            </div>
+        </div>
+    </article>
+
+</turbo-frame>

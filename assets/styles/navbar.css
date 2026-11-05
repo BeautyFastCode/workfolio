@@ -1,0 +1,25 @@
+.navbar {
+    --bs-navbar-active-color: var(--accent-color);
+}
+
+nav {
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+
+    .nav-link {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        letter-spacing: 0.0625em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        border-bottom: 2px solid transparent;
+
+        &:hover,
+        &.active {
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            background-color: rgba(212, 175, 55, 0.04);
+        }
+    }
+}

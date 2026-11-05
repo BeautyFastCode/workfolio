@@ -1,0 +1,18 @@
+
+<div class="technologies container mt-4">
+    {% for group in this.data %}
+        <h5 class="mt-4 mb-3 text-muted-custom">{{ group.name }}</h5>
+
+        <div class="row g-3">
+            {% for item in group.items %}
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="technologies-card p-4 text-center h-100">
+                        <i class="{{ item.icon }} text-accent mb-0"></i>
+                        <span>{{ item.name }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endfor %}
+</div>

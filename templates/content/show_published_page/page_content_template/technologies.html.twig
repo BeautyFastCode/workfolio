@@ -1,0 +1,29 @@
+{% set locale = locale_provider.current %}
+
+{{ page.blockContent('block_1')|raw }}
+
+<h3 class="mt-5 mb-2">{{ page.blockContent('title_1') }}</h3>
+<twig:Technologies :locale="locale" :highlighted="true" />
+
+<div
+    {{ stimulus_controller('toggle-collapse', {
+        showMoreLabel: 'button.show_more'|trans,
+        showLessLabel: 'button.show_less'|trans,
+    }) }}
+>
+    <div class="d-flex flex-wrap mt-5 mb-2">
+        <h3>{{ page.blockContent('title_2') }}</h3>
+        <button
+            class="btn btn-link text-muted-custom btn-sm p-0 ms-1"
+            data-bs-toggle="collapse"
+            data-bs-target="#moreContent"
+        >
+            <i class="fa-solid fa-chevron-down me-1" {{ stimulus_target('toggle-collapse', 'icon') }}></i>
+            <span {{ stimulus_target('toggle-collapse', 'label') }}>{{ 'button.show_more'|trans }}</span>
+        </button>
+    </div>
+
+    <div class="collapse mt-3" id="moreContent">
+        <twig:Technologies :locale="locale" :highlighted="false" />
+    </div>
+</div>

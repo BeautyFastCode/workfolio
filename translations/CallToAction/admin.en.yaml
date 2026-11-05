@@ -1,0 +1,20 @@
+menu:
+    cta_message: CTA messages
+
+crud:
+    cta_message:
+        entity_label:
+            plural: CTA messages
+            singular: CTA message
+        created_at: Created At
+        updated_at: Updated At
+        message_pl: 'PL: Polski'
+        message_en: 'EN: English'
+        translations: Translations
+
+    cta_message_translation:
+        entity_label:
+            plural: Translations for CTA messages
+            singular: Translation for CTA message
+        locale: Locale
+        message: Message

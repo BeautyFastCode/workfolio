@@ -1,0 +1,44 @@
+
+{% extends '@EasyAdmin/page/login.html.twig' %}
+
+{% block page_title %}{{ 'login.page_title'|trans({}, 'admin') }}{% endblock page_title %}
+
+{% block head_favicon %}
+    <link rel="shortcut icon" href="{{ asset('icons/favicon.svg') }}">
+{% endblock %}
+
+{% block head_stylesheets %}
+    {{ parent() }}
+
+    <style>
+        body {
+            background: url("{{ asset('images/admin_login_bg.jpg') }}") !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            min-height: 100vh;
+        }
+    </style>
+{% endblock head_stylesheets %}
+
+{% block header_logo %}
+    <div class="logo-long" style="color: white;">
+        {{ 'login.page_title'|trans({}, 'admin') }}
+    </div>
+{% endblock header_logo %}
+
+{% block login_form_wrapper %}
+    <div style="position: fixed; top: 20px; right: 24px; z-index: 9999;">
+        <a href="{{ path('admin_login', {_locale: 'pl'}) }}"
+           style="color: white; {{ locale == 'pl' ? 'font-weight: bold; text-decoration: none;' : '' }}">
+            🇵🇱 Polski
+        </a>
+        <span style="margin: 0 6px;"></span>
+        <a href="{{ path('admin_login', {_locale: 'en'}) }}"
+           style="color: white; {{ locale == 'en' ? 'font-weight: bold; text-decoration: none;' : '' }}">
+            🇬🇧 English
+        </a>
+    </div>
+
+    {{ parent() }}
+{% endblock login_form_wrapper %}

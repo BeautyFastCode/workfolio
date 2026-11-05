@@ -1,0 +1,9 @@
+
+{% if analytics.enabled %}
+    <script defer src="{{ analytics.url }}"
+            data-website-id="{{ analytics.website_id }}"
+            data-auto-track="true"
+            data-performance="true"
+    >
+    </script>
+{% endif %}

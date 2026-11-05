@@ -1,0 +1,45 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Identity\CreateAdminUser\Application\CreateAdminUserHandler:
+        arguments:
+            $metrics: '@App\Shared\Observability\Application\HandlerMetrics'
+
+    App\Identity\CreateAdminUser\Infrastructure\:
+        resource: 'CreateAdminUser/Infrastructure/'
+
+    App\Identity\CreateAdminUser\UI\:
+        resource: 'CreateAdminUser/UI/'
+
+    App\Identity\AuthenticateAdmin\Infrastructure\:
+        resource: 'AuthenticateAdmin/Infrastructure/'
+
+    App\Identity\AuthenticateAdmin\UI\:
+        resource: 'AuthenticateAdmin/UI/'
+
+    App\Identity\ManageAdminUsers\UI\:
+        resource: 'ManageAdminUsers/UI/'
+        exclude:
+            - 'ManageAdminUsers/UI/Admin/AdminUserRoleLabels.php'
+
+    App\Identity\Shared\Infrastructure\:
+        resource: 'Shared/Infrastructure/'
+        exclude:
+            - 'Shared/Infrastructure/Persistence/'
+
+    App\Identity\CreateAdminUser\Application\AdminUserUniquenessChecker:
+        alias: App\Identity\CreateAdminUser\Infrastructure\DoctrineAdminUserUniquenessChecker
+
+    App\Identity\CreateAdminUser\Application\AdminUserRepository:
+        alias: App\Identity\CreateAdminUser\Infrastructure\DoctrineAdminUserRepository
+
+    App\Identity\CreateAdminUser\Application\AdminUserTransaction:
+        alias: App\Identity\CreateAdminUser\Infrastructure\DoctrineAdminUserTransaction
+
+    App\Identity\CreateAdminUser\Application\AdminUserValidator:
+        alias: App\Identity\CreateAdminUser\Infrastructure\SymfonyAdminUserValidator
+
+    App\Identity\CreateAdminUser\Application\PasswordHasher:
+        alias: App\Identity\CreateAdminUser\Infrastructure\SymfonyPasswordHasher

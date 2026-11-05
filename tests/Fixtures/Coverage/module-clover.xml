@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage>
+  <project>
+    <package name="App.Content">
+      <file name="/app/src/Content/ShowPublishedPage/Application/ShowPublishedPageHandler.php">
+        <metrics statements="10" coveredstatements="9" />
+      </file>
+    </package>
+    <package name="App.Contact">
+      <file name="/app/src/Contact/SubmitContactMessage/Application/SubmitContactMessageHandler.php">
+        <metrics statements="5" coveredstatements="5" />
+      </file>
+      <file name="C:\app\src\Contact\SubmitContactMessage\Application\ContactMessageRepository.php">
+        <metrics statements="3" coveredstatements="2" />
+      </file>
+    </package>
+    <package name="App.Controller">
+      <file name="/app/src/Controller/HomeController.php">
+        <metrics statements="12" coveredstatements="12" />
+      </file>
+    </package>
+    <metrics statements="30" coveredstatements="28" />
+  </project>
+</coverage>

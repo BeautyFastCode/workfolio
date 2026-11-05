@@ -1,0 +1,57 @@
+.statistics {
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+
+    h2 {
+        letter-spacing: 0.0625em;
+        padding-bottom: 0.75rem;
+        position: relative;
+    }
+
+    h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    }
+}
+
+.statistics-card {
+    background-color: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    overflow: hidden;
+
+    i,
+    svg {
+        font-size: 1.2rem;
+        opacity: 0.8;
+    }
+
+    &:hover {
+        transform: translateY(-6px);
+        background-color: var(--bg-secondary);
+        border-color: var(--accent-hover);
+        box-shadow: var(--shadow-sm);
+
+        i,
+        svg {
+            color: var(--accent-hover);
+        }
+    }
+
+    .value {
+        font-family: var(--font-heading), serif;
+        letter-spacing: 0.0625em;
+    }
+
+    .label {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+}

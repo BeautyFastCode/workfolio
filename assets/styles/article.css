@@ -1,0 +1,27 @@
+main {
+    scroll-margin-top: 100px;
+}
+
+article {
+    h2 {
+        letter-spacing: 0.0625em;
+        padding-bottom: 0.75rem;
+        position: relative;
+    }
+
+    h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        width: 50%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+    }
+
+    p {
+        line-height: 1.8;
+        font-size: 1.05rem;
+        font-weight: 300;
+    }
+}

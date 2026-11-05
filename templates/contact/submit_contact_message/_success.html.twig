@@ -1,0 +1,13 @@
+
+<turbo-frame id="{{ turboFrame.contactFormId }}"
+>
+    <div class="contact-form card mt-5 text-start">
+        <div class="card-body p-4 p-md-5">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message|trans }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</turbo-frame>

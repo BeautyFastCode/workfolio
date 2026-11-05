@@ -1,0 +1,11 @@
+page_translation:
+    slug: Slug może zawierać tylko małe litery, cyfry i myślniki.
+
+page_block:
+    name: Nazwa bloku może zawierać tylko małe litery, cyfry i podkreślenia.
+
+block_collection:
+    name: Nazwa kolekcji bloków może zawierać tylko małe litery, cyfry i podkreślenia.
+
+block:
+    name: Nazwa bloku może zawierać tylko małe litery, cyfry i podkreślenia.

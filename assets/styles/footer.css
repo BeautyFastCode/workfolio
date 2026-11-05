@@ -1,0 +1,30 @@
+footer {
+    border-top: 1px solid var(--border-color);
+
+    .bg-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background:
+            radial-gradient(circle at 10% 90%, var(--overlay-footer-radial-color), transparent 20%),
+            linear-gradient(to bottom, transparent, var(--overlay-footer-linear-color));
+
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .btn-outline-accent {
+        border: 1px solid var(--border-accent);
+        color: var(--text-muted);
+        transition: all 0.3s;
+
+        &:hover {
+            background-color: var(--accent-color);
+            color: #000;
+            border-color: var(--accent-color);
+        }
+    }
+}

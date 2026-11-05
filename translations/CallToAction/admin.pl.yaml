@@ -1,0 +1,20 @@
+menu:
+    cta_message: Wiadomości CTA
+
+crud:
+    cta_message:
+        entity_label:
+            plural: Wiadomości CTA
+            singular: Wiadomość CTA
+        created_at: Utworzono o
+        updated_at: Zaktualizowano o
+        message_pl: 'PL: Polski'
+        message_en: 'EN: English'
+        translations: Tłumaczenia
+
+    cta_message_translation:
+        entity_label:
+            plural: Tłumaczenia wiadomości CTA
+            singular: Tłumaczenie wiadomości CTA
+        locale: Język
+        message: Wiadomość

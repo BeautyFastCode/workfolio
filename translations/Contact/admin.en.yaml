@@ -1,0 +1,26 @@
+menu:
+    contact_link: Contact links
+    contact_message: Contact messages
+
+crud:
+    contact_link:
+        entity_label:
+            plural: Contact links
+            singular: Contact link
+        name: Name
+        enabled: Enabled?
+        position: Position
+        icon: Icon
+        href: Link
+        created_at: Created At
+        updated_at: Updated At
+
+    contact_message:
+        entity_label:
+            plural: Contact messages
+            singular: Contact message
+        full_name: Full name
+        email: E-mail
+        subject: Subject
+        message: Message
+        created_at: Created At

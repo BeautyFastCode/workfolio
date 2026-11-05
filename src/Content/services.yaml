@@ -1,0 +1,46 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Content\GetLayoutContent\Application\GetLayoutContentHandler: ~
+    App\Content\ListNavigation\Application\ListNavigationHandler: ~
+    App\Content\ShowPublishedPage\Application\ShowPublishedPageHandler: ~
+
+    App\Content\GetLayoutContent\Infrastructure\:
+        resource: 'GetLayoutContent/Infrastructure/'
+
+    App\Content\GetLayoutContent\UI\:
+        resource: 'GetLayoutContent/UI/'
+
+    App\Content\ListNavigation\Infrastructure\:
+        resource: 'ListNavigation/Infrastructure/'
+
+    App\Content\ListNavigation\UI\:
+        resource: 'ListNavigation/UI/'
+
+    App\Content\ShowPublishedPage\Infrastructure\:
+        resource: 'ShowPublishedPage/Infrastructure/'
+
+    App\Content\ShowPublishedPage\UI\:
+        resource: 'ShowPublishedPage/UI/'
+
+    App\Content\ManageBlocks\UI\:
+        resource: 'ManageBlocks/UI/'
+
+    App\Content\ManagePages\UI\:
+        resource: 'ManagePages/UI/'
+
+    App\Content\Shared\Infrastructure\:
+        resource: 'Shared/Infrastructure/'
+        exclude:
+            - 'Shared/Infrastructure/Persistence/'
+
+    App\Content\ShowPublishedPage\Application\PublishedPageFinder:
+        alias: App\Content\ShowPublishedPage\Infrastructure\DoctrinePublishedPageFinder
+
+    App\Content\ListNavigation\Application\NavigationFinder:
+        alias: App\Content\ListNavigation\Infrastructure\DoctrineNavigationFinder
+
+    App\Content\GetLayoutContent\Application\LayoutContentFinder:
+        alias: App\Content\GetLayoutContent\Infrastructure\DoctrineLayoutContentFinder

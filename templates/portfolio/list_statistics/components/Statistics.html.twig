@@ -1,0 +1,33 @@
+
+<section class="statistics py-5 bg-tinted-section position-relative">
+    <div class="container py-4 max-w-800">
+
+        <div class="text-center">
+            <h2 class="display-6 text-uppercase mb-1">Statistics</h2>
+        </div>
+
+        {% for group in this.data %}
+            <div class="mt-5">
+                <div class="text-center mb-4">
+                    <p class="text-uppercase tracking-widest text-accent fs-6">{{ group.name }}</p>
+                </div>
+
+                <div class="row g-4 justify-content-center row-cols-1 row-cols-sm-2 row-cols-lg-4">
+                    {% for item in group.items %}
+                        <div class="col">
+                            <div class="statistics-card p-4 text-center h-100">
+                                <div class="d-flex gap-2 mb-1 justify-content-center align-items-center">
+                                    <i class="{{ item.icon }} text-accent mb-0"></i>
+                                    <p class="value h2 fw-bold mb-0">{{ item.value }}</p>
+                                </div>
+
+                                <p class="label text-uppercase tracking-wider mb-0">{{ item.name }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>

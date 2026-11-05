@@ -1,0 +1,28 @@
+{% import 'shared/twig/_macros/analytics.html.twig' as analytics %}
+
+<nav class="sticky-top navbar navbar-expand-md py-3"
+     aria-label="{{ 'aria_label.main_navbar'|trans }}"
+    {{ stimulus_controller('navbar') }}
+     data-turbo-prefetch="false"
+>
+
+    <div class="container justify-content-center">
+        <ul class="navbar-nav flex-row flex-wrap gap-2 text-uppercase justify-content-center w-100">
+            {% for page in this.pages %}
+                <li class="nav-item">
+                    {% set slug = page.slug %}
+
+                    <a class="nav-link px-3 py-2 {{ page.active ? 'active' : '' }}"
+                        href="{{ path('app_home', {slug: slug}) }}"
+                        data-turbo-frame="{{ turboFrame.pageId }}"
+                        data-turbo-action="advance"
+
+                        {{ analytics.go_element_and_track_click('main', 'navbar_button', {name: slug}) }}
+
+                    >{{ page.menuTitle }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</nav>

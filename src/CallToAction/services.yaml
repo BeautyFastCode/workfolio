@@ -1,0 +1,30 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\CallToAction\PublishRandomCta\Application\PublishRandomCtaHandler:
+        arguments:
+            $metrics: '@App\Shared\Observability\Application\HandlerMetrics'
+
+    App\CallToAction\PublishRandomCta\Infrastructure\:
+        resource: 'PublishRandomCta/Infrastructure/'
+
+    App\CallToAction\PublishRandomCta\UI\:
+        resource: 'PublishRandomCta/UI/'
+        exclude:
+            - 'PublishRandomCta/UI/Scheduler/PublishCtaMessage.php'
+
+    App\CallToAction\ManageCtaMessages\UI\:
+        resource: 'ManageCtaMessages/UI/'
+
+    App\CallToAction\Shared\Infrastructure\:
+        resource: 'Shared/Infrastructure/'
+        exclude:
+            - 'Shared/Infrastructure/Persistence/Doctrine/Entity/'
+
+    App\CallToAction\PublishRandomCta\Application\RandomCtaFinder:
+        alias: App\CallToAction\PublishRandomCta\Infrastructure\DoctrineRandomCtaFinder
+
+    App\CallToAction\PublishRandomCta\Application\CtaPublisher:
+        alias: App\CallToAction\PublishRandomCta\Infrastructure\MercureTwigCtaPublisher
